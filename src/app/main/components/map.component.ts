@@ -16,17 +16,22 @@ export class MapComponent implements OnInit {
 
     tracks: Array<Track> = [];
     lines: Array<Line> = [];
-    lat: number = 47.191260;
-    lng: number = -1.609325;
+    center: Pt;
     self: MapComponent = this;
+    zoom: Number = 15;
     constructor(private tracksService: TracksService) {
-
+        this.center = new Pt(47.191260,-1.609325,0,0);
     }
     ngOnInit() {
         console.log("Init Map");
         this.tracksService.getTracks().subscribe(tracks => {
             this.tracks.splice(0, this.tracks.length);
             this.lines.splice(0, this.lines.length);
+
+            if (tracks.length > 0) {
+                this.center = tracks[tracks.length - 1].center;
+            }
+
             tracks.forEach(track => {
                 this.tracks.push(track);
                 track.lines.forEach(line => {
@@ -36,6 +41,6 @@ export class MapComponent implements OnInit {
             })
         });
     }
-   
+
 
 }

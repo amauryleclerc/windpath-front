@@ -1,6 +1,6 @@
 
 
-<sebm-google-map  [latitude]="lat" [longitude]="lng" >
+<sebm-google-map  [latitude]="center.lat" [longitude]="center.lon" [zoom]="zoom" >
     <sebm-google-map-polyline *ngFor="let line of lines" [strokeColor]="line.color" >
          <sebm-google-map-polyline-point   [latitude]="line.ptA.lat" [longitude]="line.ptA.lon" >
          </sebm-google-map-polyline-point>
