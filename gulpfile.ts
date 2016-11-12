@@ -58,7 +58,8 @@ gulp.task("libs", () => {
             'zone.js/dist/**',
             '@angular/**/bundles/**',
             '@ng-bootstrap/**/bundles/**',
-            'bootstrap/**/bootstrap.min.css'
+            'bootstrap/**/bootstrap.min.css',
+            'angular2-google-maps/core/**'
         ], {cwd: "node_modules/**"}) /* Glob required here. */
         .pipe(gulp.dest("build/lib"));
 });

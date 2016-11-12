@@ -1,0 +1,8 @@
+
+
+<sebm-google-map  [latitude]="lat" [longitude]="lng" >
+    <sebm-google-map-polyline *ngFor="let track of tracks" >
+         <sebm-google-map-polyline-point   *ngFor="let pt of track.pts" [latitude]="pt.lat" [longitude]="pt.lon">
+         </sebm-google-map-polyline-point>
+     </sebm-google-map-polyline>
+ </sebm-google-map>

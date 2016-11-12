@@ -20,7 +20,7 @@
             '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
             // other libraries
             'rxjs': 'npm:rxjs',
-         //   '@ng-bootstrap': 'npm:@ng-bootstrap'
+            'angular2-google-maps/core': 'npm:angular2-google-maps/core/core.umd.js',
             '@ng-bootstrap/ng-bootstrap': 'npm:@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js'
 
         },
@@ -33,6 +33,7 @@
             rxjs: {
                 defaultExtension: 'js'
             }
+           
         }
     });
 })(this);
