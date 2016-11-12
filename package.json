@@ -1,0 +1,49 @@
+{
+  "name": "wind-path",
+  "version": "1.0.0",
+  "description": "Application for windsurfer",
+  "scripts": {
+    "clean": "gulp clean",
+    "compile": "gulp compile",
+    "build": "gulp build",
+    "start": "concurrent --kill-others \"gulp watch\" \"lite-server\"",
+    "postinstall": "typings install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kolorobot/angular2-typescript-gulp.git"
+  },
+  "author": "Amaury LECLRC",
+  "license": "MIT",
+  "dependencies": {
+    "@angular/common": "2.1.2",
+    "@angular/compiler": "2.1.2",
+    "@angular/core": "2.1.2",
+    "@angular/forms": "2.1.2",
+    "@angular/http": "2.1.2",
+    "@angular/platform-browser": "2.1.2",
+    "@angular/platform-browser-dynamic": "2.1.2",
+    "@angular/router": "3.1.2",
+    "@angular/upgrade": "2.1.2",
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.13",
+    "bootstrap": "^4.0.0-alpha.5",
+    "core-js": "^2.4.1",
+    "reflect-metadata": "^0.1.3",
+    "rxjs": "5.0.0-rc.2",
+    "systemjs": "0.19.41",
+    "zone.js": "^0.6.23"
+  },
+  "devDependencies": {
+    "concurrently": "^3.1.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^2.2.0",
+    "gulp-tslint": "^6.1.1 ",
+    "gulp-typescript": "^3.1.2",
+    "lite-server": "^2.2.2",
+    "tslint": "^3.5.0",
+    "typescript": "^2.0.2",
+    "typings": "^2.0.0",
+    "ts-node": "^1.3.0"
+  }
+}
