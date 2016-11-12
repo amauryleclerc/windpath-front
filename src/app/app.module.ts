@@ -11,6 +11,13 @@ import {routing, appRoutingProviders} from './app.routing';
 import {FormsModule} from "@angular/forms";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AgmCoreModule } from 'angular2-google-maps/core';
+import { ValueProvider } from '@angular/core';
+import {TracksService} from "./main/services/tracks.service";
+
+const WINDOW_PROVIDER: ValueProvider = {
+    provide: Window,
+    useValue: window
+};
 
 @NgModule({
     imports: [
@@ -31,7 +38,9 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
         MapComponent
     ],
     providers: [
-        appRoutingProviders
+        WINDOW_PROVIDER,
+        appRoutingProviders,
+        TracksService
     ],
     bootstrap: [AppComponent]
 })
