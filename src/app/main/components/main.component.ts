@@ -14,7 +14,6 @@ export class MainComponent implements OnInit {
 
 
     constructor(private gpxService: GPXService, private tracksService: TracksService) {
-
     }
 
     ngOnInit() {

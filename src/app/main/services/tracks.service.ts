@@ -10,10 +10,10 @@ export class TracksService {
 
     constructor() {
         let pts: Array<Pt> = [
-            new Pt(47.191260, -1.609325),
-            new Pt(47.193126, -1.640224),
-            new Pt(47.197559, -1.669750),
-            new Pt(47.205023, -1.705456)
+            new Pt(47.191260, -1.609325,0,0),
+            new Pt(47.193126, -1.640224,0,0),
+            new Pt(47.197559, -1.669750,0,0),
+            new Pt(47.205023, -1.705456,0,0)
         ];
         this.subject.asObservable().subscribe(t => {
             console.log("new");

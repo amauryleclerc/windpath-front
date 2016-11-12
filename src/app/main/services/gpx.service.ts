@@ -7,14 +7,18 @@ export class GPXService {
     private window;
     private self;
     constructor(window: Window) {
-        this.self = this; 
+        this.self = this;
         this.window = window;
     }
 
     gpxToTrack(gpx: any): Track {
         let name = gpx.gpx.trk.name;
-        let pts: Array<Pt> =  gpx.gpx.trk.trkseg.trkpt.map(trkpt =>{
-           return  new Pt(Number(trkpt["@lat"]),Number(trkpt["@lon"]));
+        let pts: Array<Pt> = gpx.gpx.trk.trkseg.trkpt.map(trkpt => {
+            let lat: number = Number(trkpt["@lat"]);
+            let lon: number = Number(trkpt["@lon"]);
+            let elevation: number = Number(trkpt.ele);
+            let speed: number = Number(trkpt.speed);
+            return new Pt(lat, lon, speed, elevation);
         });
         return new Track("ID", name, pts);
     }
@@ -26,8 +30,8 @@ export class GPXService {
         var self = this.self;
         myReader.onloadend = function (e) {
             var s: String = myReader.result;
-            let o:Object = JSON.parse(xml2json(parseXml(s), ""));
-            let t : Track = self.gpxToTrack(o);
+            let o: Object = JSON.parse(xml2json(parseXml(s), ""));
+            let t: Track = self.gpxToTrack(o);
             callback(t);
         }
         myReader.readAsText(file);
