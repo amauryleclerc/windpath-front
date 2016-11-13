@@ -1,15 +1,5 @@
 <div class="row">
-
   <map [ngClass]="{'col-md-8': isOpen, 'col-md-11': !isOpen}" [isPanelOpen]="isOpen"></map>
-  <div class="col-md-1 ">
-    <label class="btn btn-primary btn-file btn-block">
-        Ajouter <input type="file" style="display: none;"  (change)="onChange($event)">
-    </label>
-    <button class="btn btn-primary btn-block" (click)="isOpen = !isOpen">Liste</button>
-  </div>
-
+  <tools-bar class="col-md-1" (isOpenUpdated)="isOpenUpdate($event)"> </tools-bar>
   <track-list class="col-md-3 " [ngbCollapse]="!isOpen"> </track-list>
-</div>
-<div>
-
 </div>

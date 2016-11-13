@@ -4,9 +4,11 @@ import { Line } from "./line";
 export class Track {
     public lines: Array<Line> = [];
     public center: Pt;
+    public maxSpeed: Pt;
     constructor(public id: string, public name: string, public pts: Array<Pt>) {
         this.lines = this.getLines();
         this.center = this.getCenter();
+        this.maxSpeed = this.getMaxSpeed();
     }
     private getLines(): Array<Line> {
         return this.pts.slice(0, this.pts.length - 1).map((pt, index) =>
@@ -14,6 +16,15 @@ export class Track {
         );
     }
 
+     private getMaxSpeed(): Pt {
+        return this.pts.reduce((acc,pt) =>{
+            if(!acc || pt.speed > acc.speed){
+                return pt;
+            }else{
+                return acc;
+            }
+        });
+    }
     private getCenter(): Pt {
         const TO_DEG = 180 / Math.PI;
         const TO_RAD = Math.PI / 180;
