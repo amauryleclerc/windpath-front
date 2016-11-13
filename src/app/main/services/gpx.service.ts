@@ -12,7 +12,8 @@ export class GPXService {
     }
 
     gpxToTrack(gpx: any): Track {
-        let name = gpx.gpx.trk.name;
+        let name: string = gpx.gpx.trk.name;
+        let id: string = Math.random().toString(36).substring(7);
         let pts: Array<Pt> = gpx.gpx.trk.trkseg.trkpt.map(trkpt => {
             let lat: number = Number(trkpt["@lat"]);
             let lon: number = Number(trkpt["@lon"]);
@@ -20,7 +21,7 @@ export class GPXService {
             let speed: number = Number(trkpt.speed);
             return new Pt(lat, lon, speed, elevation);
         });
-        return new Track("ID", name, pts);
+        return new Track(id, name, pts);
     }
 
     getTrack(inputValue: any, callback: Function): void {

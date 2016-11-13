@@ -1,0 +1,5 @@
+<div>
+    <div class="list-group">
+        <button type="button" *ngFor="let track of tracks" (click)="onSelectTrack(track)" class="list-group-item list-group-item-action" [ngClass]="{'active': track.id == selectTrack.id}" >{{track.name}}</button>
+    </div>
+</div>

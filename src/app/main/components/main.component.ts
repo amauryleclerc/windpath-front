@@ -12,6 +12,7 @@ import { Track } from "../models/track";
 })
 export class MainComponent implements OnInit {
 
+    isOpen:boolean = false;
 
     constructor(private gpxService: GPXService, private tracksService: TracksService) {
     }
@@ -20,10 +21,11 @@ export class MainComponent implements OnInit {
         console.log("Init MainComponent");
     }
 
+
+
     onChange(event) {
         this.gpxService.getTrack(event.target, (t: Track) => {
             this.tracksService.addTrack(t);
-            console.log(t.name);
         });
     }
 
