@@ -12,6 +12,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { ValueProvider } from '@angular/core';
 import {TracksService} from "./main/services/tracks.service";
+import {MapService} from "./main/services/map.service";
 
 const WINDOW_PROVIDER: ValueProvider = {
     provide: Window,
@@ -38,7 +39,8 @@ const WINDOW_PROVIDER: ValueProvider = {
     providers: [
         WINDOW_PROVIDER,
         appRoutingProviders,
-        TracksService
+        TracksService,
+        MapService
     ],
     bootstrap: [AppComponent]
 })

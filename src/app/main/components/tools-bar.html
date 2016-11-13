@@ -2,3 +2,4 @@
         Ajouter <input type="file" style="display: none;"  (change)="onChange($event)">
     </label>
 <button class="btn btn-primary btn-block" (click)="open()">Liste</button>
+<button class="btn btn-vmax btn-block" (click)="showMaxSpeed()" *ngIf="selectTrack" >Vmax<br>{{selectTrack.maxSpeed.getKnotsSpeed()}} Noeuds<br>{{selectTrack.maxSpeed.getKmSpeed()}} Km/h</button>
