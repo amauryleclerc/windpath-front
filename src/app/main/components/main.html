@@ -1,6 +1,6 @@
 <div class="row">
-  <br>
   <map [ngClass]="{'col-md-8': isOpen, 'col-md-11': !isOpen}" [isPanelOpen]="isOpen"></map>
   <tools-bar class="col-md-1" (isOpenUpdated)="isOpenUpdate($event)"> </tools-bar>
   <track-list class="col-md-3 " [ngbCollapse]="!isOpen"> </track-list>
+  <player class="col-md-12"></player>
 </div>

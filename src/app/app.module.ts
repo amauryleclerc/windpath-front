@@ -6,6 +6,7 @@ import {MainComponent} from "./main/components/main.component";
 import {MapComponent} from "./main/components/map.component";
 import {TrackListComponent} from "./main/components/track-list.component";
 import {ToolsBarComponent} from "./main/components/tools-bar.component";
+import {PlayerComponent} from "./main/components/player.component";
 import {routing, appRoutingProviders} from './app.routing';
 import {FormsModule} from "@angular/forms";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -34,7 +35,8 @@ const WINDOW_PROVIDER: ValueProvider = {
         MainComponent,
         MapComponent,
         TrackListComponent,
-        ToolsBarComponent
+        ToolsBarComponent,
+        PlayerComponent
     ],
     providers: [
         WINDOW_PROVIDER,
