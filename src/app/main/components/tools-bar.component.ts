@@ -28,6 +28,7 @@ export class ToolsBarComponent implements OnInit {
             this.selectTrack = track;
         });
 
+
     }
 
     onChange(event) {

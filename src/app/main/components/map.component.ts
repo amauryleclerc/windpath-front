@@ -4,6 +4,7 @@ import { Track } from "../models/track";
 import { Pt } from "../models/pt";
 import { Line } from "../models/line";
 import { TracksService } from "../services/tracks.service";
+import { PlayerService } from "../services/player.service";
 import { MapService } from "../services/map.service";
 import { Observable } from "rxjs/Rx";
 import { GoogleMapsAPIWrapper } from "angular2-google-maps/core";
@@ -22,8 +23,9 @@ export class MapComponent implements OnInit {
     self: MapComponent = this;
     zoom: Number = 15;
     maxSpeed: Pt;
-    constructor(private tracksService: TracksService, private googleMapsAPIWrapper: GoogleMapsAPIWrapper, private mapService: MapService) {
-        this.center = new Pt(47.191260, -1.609325, 0, 0);
+    windsurfer : Pt;
+    constructor(private tracksService: TracksService, private googleMapsAPIWrapper: GoogleMapsAPIWrapper, private mapService: MapService, private playerService:PlayerService) {
+        this.center = new Pt(0, 0, 0, 0);
   
 
     }
@@ -40,6 +42,9 @@ export class MapComponent implements OnInit {
         });
         this.mapService.getMaxSpeed().subscribe(pt => {
             this.maxSpeed = pt;
+        });
+        this.playerService.getPosition().subscribe(pt =>{
+            this.windsurfer = pt;
         });
     }
     @Input() set isPanelOpen(isOpen: boolean) {

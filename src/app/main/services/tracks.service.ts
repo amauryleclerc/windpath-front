@@ -10,13 +10,7 @@ export class TracksService {
     private tracksSubject = new BehaviorSubject<Array<Track>>(this.tracks);
     private selectTrackSubject = new BehaviorSubject<Track>(this._selectTrack);
     constructor() {
-        let pts: Array<Pt> = [
-            new Pt(47.191260, -1.609325, 0, 0),
-            new Pt(47.193126, -1.640224, 0, 0),
-            new Pt(47.197559, -1.669750, 0, 0),
-            new Pt(47.205023, -1.705456, 0, 0)
-        ];
-        this.addTrack(new Track("00", "track1", pts));
+       
     }
 
     getTracks(): Observable<Array<Track>> {

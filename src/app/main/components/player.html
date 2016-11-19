@@ -1,5 +1,18 @@
 <nav class="navbar  navbar-dark bg-inverse">
+
   <div class="nav navbar-nav">
-      <button class="btn btn-primary">Play</button>
+    <button class="btn btn-primary" (click)="play()" *ngIf="!isPlaying">
+       <i class="fa fa-play"></i>
+    </button>
+    <button class="btn btn-primary" (click)="pause()" *ngIf="isPlaying"> 
+       <i class="fa fa-pause"></i>
+    </button>
+  <button class="btn btn-primary" (click)="slower()">
+    <i class="fa fa-minus"></i>
+  </button>
+  <span class="navbar-text">x{{speed}}</span>
+  <button class="btn btn-primary" (click)="faster()"> 
+    <i class="fa fa-plus"></i>
+  </button>
   </div>
 </nav>
