@@ -27,10 +27,10 @@ export class PlayerService {
         this.speedSubject.next(speed);
     }
     faster() {
-        this.speedSubject.take(1).filter(s => s>=1).subscribe(s => this.speedSubject.next(s / 10));
+        this.speedSubject.take(1).filter(s => s >= 1).subscribe(s => this.speedSubject.next(s / 10));
     }
     slower() {
-        this.speedSubject.take(1).filter(s => s<=10000).subscribe(s => this.speedSubject.next(s * 10));
+        this.speedSubject.take(1).filter(s => s <= 10000).subscribe(s => this.speedSubject.next(s * 10));
     }
     getPosition(): Observable<Pt> {
         return this.position;
@@ -38,7 +38,21 @@ export class PlayerService {
     getSpeed(): Observable<number> {
         return this.speedSubject.asObservable();
     }
-    isPlaying():Observable<boolean>{
+    isPlaying(): Observable<boolean> {
         return this.pauseSubject.asObservable().map(v => !v);
+    }
+    getDirection(): Observable<String> {
+        return this.position.bufferCount(2, 1)//
+            .map(l => this.getDirectionFromPts(l[0], l[1]))//
+            .startWith("right")//
+            .distinctUntilChanged();
+    }
+
+    private getDirectionFromPts(ptA: Pt, ptB: Pt):String {
+        if (ptA.lon < ptB.lon) {
+            return "right";
+        } else {
+            return "left";
+        }
     }
 }

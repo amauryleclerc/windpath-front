@@ -24,6 +24,7 @@ export class MapComponent implements OnInit {
     zoom: Number = 15;
     maxSpeed: Pt;
     windsurfer : Pt;
+    icon:String;
     constructor(private tracksService: TracksService, private googleMapsAPIWrapper: GoogleMapsAPIWrapper, private mapService: MapService, private playerService:PlayerService) {
         this.center = new Pt(0, 0, 0, 0);
   
@@ -45,6 +46,9 @@ export class MapComponent implements OnInit {
         });
         this.playerService.getPosition().subscribe(pt =>{
             this.windsurfer = pt;
+        });
+        this.playerService.getDirection().subscribe(d =>{
+            this.icon = "img/"+d+".gif";
         });
     }
     @Input() set isPanelOpen(isOpen: boolean) {

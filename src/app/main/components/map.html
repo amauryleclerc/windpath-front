@@ -7,6 +7,6 @@
     </sebm-google-map-polyline>
     <sebm-google-map-marker *ngIf="maxSpeed" [latitude]="maxSpeed.lat" [longitude]="maxSpeed.lon" [title]="maxSpeed.getSpeedLabel()">
     </sebm-google-map-marker>
-    <sebm-google-map-marker *ngIf="windsurfer" [latitude]="windsurfer.lat" [longitude]="windsurfer.lon" [title]="windsurfer.getSpeedLabel()">
+    <sebm-google-map-marker *ngIf="windsurfer" [latitude]="windsurfer.lat" [longitude]="windsurfer.lon" [title]="windsurfer.getSpeedLabel()" [iconUrl]="icon">
     </sebm-google-map-marker>
 </sebm-google-map>
