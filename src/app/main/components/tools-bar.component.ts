@@ -41,7 +41,7 @@ export class ToolsBarComponent implements OnInit {
         this.isOpenUpdated.emit(this.isOpen);
     }
     showMaxSpeed(){
-        this.mapService.showMaxSpeed(this.selectTrack.maxSpeed);
+        this.mapService.toggleMaxSpeed(this.selectTrack.maxSpeed);
     }
 
 

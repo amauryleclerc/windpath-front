@@ -15,7 +15,6 @@ export class PlayerService {
             .switchMap(tuple => tuple[0] ? Observable.never() : Observable.interval(Number(tuple[1])));
         this.position = this.tracksService.getSelectTrack()//
             .switchMap(track => Observable.zip(Observable.from(track.pts), interval, (a, b) => a));
-        this.position.subscribe(x => console.log(x));
     }
     play() {
         this.pauseSubject.next(false);
