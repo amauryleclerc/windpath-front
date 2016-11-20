@@ -13,8 +13,10 @@ export class PlayerService {
         const interval: Observable<Number> = this.pauseSubject.combineLatest(this.speedSubject, (a, b) => [a, b])//
             .share()//
             .switchMap(tuple => tuple[0] ? Observable.never() : Observable.interval(Number(tuple[1])));
+            
         this.position = this.tracksService.getSelectTrack()//
-            .switchMap(track => Observable.zip(Observable.from(track.pts), interval, (a, b) => a));
+            .do(()=> this.pause())//
+            .switchMap(track => Observable.zip(Observable.from(track.pts), interval, (a, b) => a).finally(() => this.pause()).repeat());
     }
     play() {
         this.pauseSubject.next(false);
@@ -26,7 +28,7 @@ export class PlayerService {
         this.speedSubject.next(speed);
     }
     faster() {
-        this.speedSubject.take(1).filter(s => s >= 1).subscribe(s => this.speedSubject.next(s / 10));
+        this.speedSubject.take(1).filter(s => s >= 0.1).subscribe(s => this.speedSubject.next(s / 10));
     }
     slower() {
         this.speedSubject.take(1).filter(s => s <= 10000).subscribe(s => this.speedSubject.next(s * 10));

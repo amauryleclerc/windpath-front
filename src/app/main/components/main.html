@@ -1,8 +1,7 @@
-<div class="container-fluid">
-  <div class="row">
-    <map [ngClass]="{'col-md-8': isOpen, 'col-md-11': !isOpen}" [isPanelOpen]="isOpen"></map>
-    <tools-bar class="col-md-1" (isOpenUpdated)="isOpenUpdate($event)"> </tools-bar>
-    <track-list class="col-md-3 " [ngbCollapse]="!isOpen"> </track-list>
-  </div>
+<div >
+ <!-- <div class="row">-->
+ <!--   <map [ngClass]="{'col-md-8': isOpen, 'col-sd-12': !isOpen}" [isPanelOpen]="isOpen"></map>-->
+  <!--  <track-list class="col-md-3 " [ngbCollapse]="!isOpen"> </track-list>
+  </div>-->
+   <map [isPanelOpen]="isOpen"></map>
 </div>
-<player class=""></player>

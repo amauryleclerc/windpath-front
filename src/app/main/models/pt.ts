@@ -3,7 +3,7 @@ export class Pt {
     constructor(public lat: number, public lon: number, public speed: number, public elevation: number) {
     }
     getSpeedLabel(): String {
-        return  new String(this.getKnotsSpeed())+" Noeuds - "+new String(this.getKmSpeed())+" Km/h";
+        return  new String(this.getKnotsSpeed())+" nd - "+new String(this.getKmSpeed())+" km/h";
     }
     getKmSpeed():number{
         return Math.round(this.speed*3.6*100)/100;

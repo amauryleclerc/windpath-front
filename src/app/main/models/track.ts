@@ -5,10 +5,13 @@ export class Track {
     public lines: Array<Line> = [];
     public center: Pt;
     public maxSpeed: Pt;
+    public length: number;
     constructor(public id: string, public name: string, public pts: Array<Pt>) {
         this.lines = this.getLines();
         this.center = this.getCenter();
         this.maxSpeed = this.getMaxSpeed();
+        this.length = this.getLength();
+
     }
     private getLines(): Array<Line> {
         return this.pts.slice(0, this.pts.length - 1).map((pt, index) =>
@@ -16,11 +19,17 @@ export class Track {
         );
     }
 
-     private getMaxSpeed(): Pt {
-        return this.pts.reduce((acc,pt) =>{
-            if(!acc || pt.speed > acc.speed){
+    private getLength(): number {
+        return Math.round(this.lines.map(l => l.length).reduce(function (a, b) {
+            return a + b;
+        }, 0)*100)/100;
+    }
+
+    private getMaxSpeed(): Pt {
+        return this.pts.reduce((acc, pt) => {
+            if (!acc || pt.speed > acc.speed) {
                 return pt;
-            }else{
+            } else {
                 return acc;
             }
         });
