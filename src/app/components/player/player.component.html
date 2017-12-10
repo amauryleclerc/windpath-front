@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <button class="btn btn-primary" (click)="play()" *ngIf="!isPlaying">
+        <i class="fa fa-play"></i>
+      </button>
+      <button class="btn btn-primary" (click)="pause()" *ngIf="isPlaying">
+        <i class="fa fa-pause"></i>
+      </button>
+    </li>
+    <li class="nav-item">
+      <button class="btn btn-primary" (click)="slower()">
+        <i class="fa fa-minus"></i>
+      </button>
+    </li>
+    <li class="nav-item">
+      <span class="navbar-text">x{{playerSpeed}}</span>
+    </li>
+    <li class="nav-item">
+      <button class="btn btn-primary" (click)="faster()">
+        <i class="fa fa-plus"></i>
+      </button>
+    </li>
+    <li class="nav-item">
+      <span class="navbar-text">{{speed}}</span>
+    </li>
+  </ul>
+</nav>

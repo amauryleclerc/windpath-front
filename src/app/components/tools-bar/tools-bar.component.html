@@ -1,0 +1,6 @@
+<span  class="btn btn-primary btn-file ">
+    Ajouter <input type="file"  (change)="onChange($event)">
+</span >
+<button class="btn btn-primary " (click)="open()">Liste</button>
+<button class="btn btn-vmax " (click)="showMaxSpeed()" *ngIf="selectTrack" >Vmax : {{selectTrack.maxSpeed.getKnotsSpeed()}} nd : {{selectTrack.maxSpeed.getKmSpeed()}} km/h</button>
+<button class="btn btn-vmax " *ngIf="selectTrack" >{{selectTrack.length}} km</button>

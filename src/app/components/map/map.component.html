@@ -1,0 +1,12 @@
+<agm-map [latitude]="center.lat" [longitude]="center.lon" mapTypeControl="true" [zoom]="zoom"  >
+    <agm-polyline *ngFor="let line of lines" [strokeColor]="line.color">
+        <agm-polyline-point [latitude]="line.ptA.lat" [longitude]="line.ptA.lon">
+        </agm-polyline-point>
+        <agm-polyline-point [latitude]="line.ptB.lat" [longitude]="line.ptB.lon">
+        </agm-polyline-point>
+    </agm-polyline>
+    <agm-marker *ngIf="maxSpeed" [latitude]="maxSpeed.lat" [longitude]="maxSpeed.lon" [title]="maxSpeed.getSpeedLabel()">
+    </agm-marker>
+    <agm-marker *ngIf="windsurfer" [latitude]="windsurfer.lat" [longitude]="windsurfer.lon" [title]="windsurfer.getSpeedLabel()" [iconUrl]="icon">
+    </agm-marker>
+</agm-map>
